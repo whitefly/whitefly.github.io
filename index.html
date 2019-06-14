@@ -337,6 +337,37 @@
           
 
           
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  457 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  2 分钟
+                </span>
+              
+            </div>
+          
 
           
 
@@ -355,20 +386,20 @@
       
         
           
-            <h1 id="快速排序2种写法"><a href="#快速排序2种写法" class="headerlink" title="快速排序2种写法"></a>快速排序2种写法</h1><p>核心思想:找到一个pivot(通常是数组第一个),找到它正确的位置,使之数组左边都比其小,数组右边都比其大.<br>具体实现:2种方式</p>
-<ol>
-<li>首+尾指针</li>
-<li>存储+扫描指针</li>
-</ol>
-<p>使用首+尾指针容易出现边界条件不好控制,面试时候容易死循环<br>推荐使用存储+扫描指针(代码量少,思想简单)</p>
-<h2 id="首-尾指针"><a href="#首-尾指针" class="headerlink" title="首+尾指针"></a>首+尾指针</h2><p>首+尾指针: 首指针从左向右扫比pivot大的位置,尾指针从右向左扫比比pivot小的位置,2者交换位置</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span>　<span class="title">Quick</span> </span>&#123;</span><br><span class="line">    　<span class="function"><span class="keyword">public</span>　<span class="keyword">void</span>　<span class="title">sort</span><span class="params">(<span class="keyword">int</span>　arr[],<span class="keyword">int</span>　low,<span class="keyword">int</span>　high)</span> </span>&#123;</span><br><span class="line">        　<span class="keyword">int</span>　l=low; <span class="comment">//首指针</span></span><br><span class="line">        　<span class="keyword">int</span>　h=high; <span class="comment">//尾指针</span></span><br><span class="line">        　<span class="keyword">int</span>　povit=arr[low];</span><br><span class="line">        </span><br><span class="line">        　<span class="keyword">while</span>(l&lt;h) &#123;</span><br><span class="line">            　<span class="keyword">while</span>(l&lt;h&amp;&amp;arr[h]&gt;=povit)h--;</span><br><span class="line">            　    </span><br><span class="line">            　<span class="keyword">if</span>(l&lt;h)&#123;</span><br><span class="line">                　arr[l]=arr[h];</span><br><span class="line">                　l++;</span><br><span class="line">            　&#125;</span><br><span class="line">            </span><br><span class="line">            　<span class="keyword">while</span>(l&lt;h&amp;&amp;arr[l]&lt;=povit)l++;</span><br><span class="line">            　    </span><br><span class="line">            </span><br><span class="line">            　<span class="keyword">if</span>(l&lt;h)&#123;</span><br><span class="line">                　arr[h]=arr[l];</span><br><span class="line">                　h--;</span><br><span class="line">            　&#125;</span><br><span class="line">        　&#125;</span><br><span class="line">            arr[l]=povit;</span><br><span class="line">        　<span class="keyword">if</span>(l-<span class="number">1</span>&gt;low)sort(arr,low,l-<span class="number">1</span>);</span><br><span class="line">        　<span class="keyword">if</span>(h+<span class="number">1</span>&lt;high)sort(arr,h+<span class="number">1</span>,high);</span><br><span class="line">    　&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          快速排序2种写法核心思想:找到一个pivot(通常是数组第一个),找到它正确的位置,使之数组左边都比其小,数组右边都比其大.具体实现:2种方式
 
-<h2 id="存储-扫描指针"><a href="#存储-扫描指针" class="headerlink" title="存储+扫描指针"></a>存储+扫描指针</h2><p>存储指针存比pivot小的元素,然后前进一个<br>由于扫描指针比存储要快,所以永远不会相遇(算法导论中的经典写法,代码量不超过10行)</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">QuickSort</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">qSort</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> low, <span class="keyword">int</span> high)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//颜色分类的思想,存储和扫遍2个指针.找到比pivot小的,就往++store指针上扔,</span></span><br><span class="line">        <span class="keyword">if</span> (high &lt;= low) <span class="keyword">return</span>;</span><br><span class="line">        <span class="keyword">int</span> pivot = nums[low];</span><br><span class="line">        <span class="keyword">int</span> store = low;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> scan = low + <span class="number">1</span>; scan &lt;= high; scan++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (nums[scan] &lt; pivot) &#123;</span><br><span class="line">                swap(nums, ++store, scan);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//最后此时store本身和左边都是小于等于pivot.原来的pivot在low位上,store为边界位置,交换一下即可.代码简单.不会越界</span></span><br><span class="line">        swap(nums, low, store);</span><br><span class="line">        qSort(nums, low, store - <span class="number">1</span>);</span><br><span class="line">        qSort(nums, store + <span class="number">1</span>, high);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+首+尾指针
+存储+扫描指针
 
-
-          
+使用首+尾指针容易出现边界条件不好控制,面试时候容易死循环推荐使
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/06/14/快速排序/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -490,6 +521,37 @@
           
 
           
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  67 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  1 分钟
+                </span>
+              
+            </div>
+          
 
           
 
@@ -508,15 +570,22 @@
       
         
           
-            <h2 id="初衷"><a href="#初衷" class="headerlink" title="初衷"></a>初衷</h2><ol>
-<li>之前都是一人做笔记,现在想把这些内容分享出来.即使有一两个人看见,自己也挺开心</li>
-<li>主要我想求些点赞数(揭露本质(⊙﹏⊙)b)</li>
-<li>域名是女朋友的名字</li>
-</ol>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">"hello hexo"</span>)</span><br><span class="line">print(<span class="string">"hello,xinbao"</span>)</span><br></pre></td></tr></table></figure>
+          初衷
+之前都是一人做笔记,现在想把这些内容分享出来.即使有一两个人看见,自己也挺开心
+主要我想求些点赞数(揭露本质(⊙﹏⊙)b)
+域名是女朋友的名字
+
+12print("hello hexo")print("hello,xinbao")
 
 
           
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/06/14/hello-world/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
