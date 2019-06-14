@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="算法,">
 
 
 
@@ -79,16 +79,18 @@
 
 
 
-<meta name="description" content="Sometimes you got to run before you can walk">
-<meta property="og:type" content="website">
-<meta property="og:title" content="whitefly">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="#快速排序2种写法 核心思想:找到一个pivot(通常是数组第一个),找到它正确的位置,使之数组左边都比其小,数组右边都比其大.具体实现:2种方式  首+尾指针 存储+扫描指针  使用首+尾指针容易出现边界条件不好控制,面试时候容易死循环推荐使用存储+扫描指针(代码量少,思想简单) 首+尾指针首+尾指针: 首指针从左向右扫比pivot大的位置,尾指针从右向左扫比比pivot小的位置,2者交换位置">
+<meta name="keywords" content="算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="快速排序">
+<meta property="og:url" content="http://yoursite.com/2019/06/14/快速排序/index.html">
 <meta property="og:site_name" content="whitefly">
-<meta property="og:description" content="Sometimes you got to run before you can walk">
+<meta property="og:description" content="#快速排序2种写法 核心思想:找到一个pivot(通常是数组第一个),找到它正确的位置,使之数组左边都比其小,数组右边都比其大.具体实现:2种方式  首+尾指针 存储+扫描指针  使用首+尾指针容易出现边界条件不好控制,面试时候容易死循环推荐使用存储+扫描指针(代码量少,思想简单) 首+尾指针首+尾指针: 首指针从左向右扫比pivot大的位置,尾指针从右向左扫比比pivot小的位置,2者交换位置">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-06-14T12:59:50.875Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="whitefly">
-<meta name="twitter:description" content="Sometimes you got to run before you can walk">
+<meta name="twitter:title" content="快速排序">
+<meta name="twitter:description" content="#快速排序2种写法 核心思想:找到一个pivot(通常是数组第一个),找到它正确的位置,使之数组左边都比其小,数组右边都比其大.具体实现:2种方式  首+尾指针 存储+扫描指针  使用首+尾指针容易出现边界条件不好控制,面试时候容易死循环推荐使用存储+扫描指针(代码量少,思想简单) 首+尾指针首+尾指针: 首指针从左向右扫比pivot大的位置,尾指针从右向左扫比比pivot小的位置,2者交换位置">
 
 
 
@@ -118,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/">
+  <link rel="canonical" href="http://yoursite.com/2019/06/14/快速排序/">
 
 
 
 
 
-  <title>whitefly</title>
+  <title>快速排序 | whitefly</title>
   
 
 
@@ -143,8 +145,7 @@
     
   
 
-  <div class="container sidebar-position-right 
-  page-home">
+  <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -247,9 +248,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -279,9 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/06/14/快速排序/" itemprop="url">快速排序</a></h1>
+          <h1 class="post-title" itemprop="name headline">快速排序</h1>
         
 
         <div class="post-meta">
@@ -335,6 +334,11 @@
           
 
           
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv">本文总阅读量
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>次
+            </span>
+          
 
           
 
@@ -353,9 +357,7 @@
       
 
       
-        
-          
-            <p>#快速排序2种写法</p>
+        <p>#快速排序2种写法</p>
 <p>核心思想:找到一个pivot(通常是数组第一个),找到它正确的位置,使之数组左边都比其小,数组右边都比其大.<br>具体实现:2种方式</p>
 <ol>
 <li>首+尾指针</li>
@@ -369,8 +371,6 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">QuickSort</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">qSort</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> low, <span class="keyword">int</span> high)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//颜色分类的思想,存储和扫遍2个指针.找到比pivot小的,就往++store指针上扔,</span></span><br><span class="line">        <span class="keyword">if</span> (high &lt;= low) <span class="keyword">return</span>;</span><br><span class="line">        <span class="keyword">int</span> pivot = nums[low];</span><br><span class="line">        <span class="keyword">int</span> store = low;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> scan = low + <span class="number">1</span>; scan &lt;= high; scan++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (nums[scan] &lt; pivot) &#123;</span><br><span class="line">                swap(nums, ++store, scan);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//最后此时store本身和左边都是小于等于pivot.原来的pivot在low位上,store为边界位置,交换一下即可.代码简单.不会越界</span></span><br><span class="line">        swap(nums, low, store);</span><br><span class="line">        qSort(nums, low, store - <span class="number">1</span>);</span><br><span class="line">        qSort(nums, store + <span class="number">1</span>, high);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
-          
-        
       
     </div>
     
@@ -385,162 +385,36 @@
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/14/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="whitefly">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/06/14/hello-world/" itemprop="url">第一篇文章</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-06-14T18:26:03+08:00">
-                2019-06-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/随笔/" itemprop="url" rel="index">
-                    <span itemprop="name">随笔</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
+            <a href="/tags/算法/" rel="tag"># 算法</a>
           
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="初衷"><a href="#初衷" class="headerlink" title="初衷"></a>初衷</h2><ol>
-<li>之前都是一人做笔记,现在想把这些内容分享出来.即使有一两个人看见,自己也挺开心</li>
-<li>主要我想求些点赞数(揭露本质(⊙﹏⊙)b)</li>
-<li>域名是女朋友的名字</li>
-</ol>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">"hello hexo"</span>)</span><br><span class="line">print(<span class="string">"hello,xinbao"</span>)</span><br></pre></td></tr></table></figure>
-
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
       
 
       
       
-        <div class="post-eof"></div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/14/hello-world/" rel="next" title="第一篇文章">
+                <i class="fa fa-chevron-left"></i> 第一篇文章
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
       
     </footer>
   </div>
@@ -550,10 +424,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -561,6 +436,15 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80NDc0Mi8yMTI2Mw"></div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -581,8 +465,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -654,6 +547,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#首-尾指针"><span class="nav-number">1.</span> <span class="nav-text">首+尾指针</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储-扫描指针"><span class="nav-number">2.</span> <span class="nav-text">存储+扫描指针</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -808,6 +717,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -836,6 +749,17 @@
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 
