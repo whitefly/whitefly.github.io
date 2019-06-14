@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="#快速排序2种写法 核心思想:找到一个pivot(通常是数组第一个),找到它正确的位置,使之数组左边都比其小,数组右边都比其大.具体实现:2种方式  首+尾指针 存储+扫描指针  使用首+尾指针容易出现边界条件不好控制,面试时候容易死循环推荐使用存储+扫描指针(代码量少,思想简单) 首+尾指针首+尾指针: 首指针从左向右扫比pivot大的位置,尾指针从右向左扫比比pivot小的位置,2者交换位置">
+<meta name="description" content="快速排序2种写法核心思想:找到一个pivot(通常是数组第一个),找到它正确的位置,使之数组左边都比其小,数组右边都比其大.具体实现:2种方式  首+尾指针 存储+扫描指针  使用首+尾指针容易出现边界条件不好控制,面试时候容易死循环推荐使用存储+扫描指针(代码量少,思想简单) 首+尾指针首+尾指针: 首指针从左向右扫比pivot大的位置,尾指针从右向左扫比比pivot小的位置,2者交换位置 12">
 <meta name="keywords" content="算法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="快速排序">
 <meta property="og:url" content="http://yoursite.com/2019/06/14/快速排序/index.html">
 <meta property="og:site_name" content="whitefly">
-<meta property="og:description" content="#快速排序2种写法 核心思想:找到一个pivot(通常是数组第一个),找到它正确的位置,使之数组左边都比其小,数组右边都比其大.具体实现:2种方式  首+尾指针 存储+扫描指针  使用首+尾指针容易出现边界条件不好控制,面试时候容易死循环推荐使用存储+扫描指针(代码量少,思想简单) 首+尾指针首+尾指针: 首指针从左向右扫比pivot大的位置,尾指针从右向左扫比比pivot小的位置,2者交换位置">
+<meta property="og:description" content="快速排序2种写法核心思想:找到一个pivot(通常是数组第一个),找到它正确的位置,使之数组左边都比其小,数组右边都比其大.具体实现:2种方式  首+尾指针 存储+扫描指针  使用首+尾指针容易出现边界条件不好控制,面试时候容易死循环推荐使用存储+扫描指针(代码量少,思想简单) 首+尾指针首+尾指针: 首指针从左向右扫比pivot大的位置,尾指针从右向左扫比比pivot小的位置,2者交换位置 12">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-06-14T12:59:50.875Z">
+<meta property="og:updated_time" content="2019-06-14T13:01:47.127Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="快速排序">
-<meta name="twitter:description" content="#快速排序2种写法 核心思想:找到一个pivot(通常是数组第一个),找到它正确的位置,使之数组左边都比其小,数组右边都比其大.具体实现:2种方式  首+尾指针 存储+扫描指针  使用首+尾指针容易出现边界条件不好控制,面试时候容易死循环推荐使用存储+扫描指针(代码量少,思想简单) 首+尾指针首+尾指针: 首指针从左向右扫比pivot大的位置,尾指针从右向左扫比比pivot小的位置,2者交换位置">
+<meta name="twitter:description" content="快速排序2种写法核心思想:找到一个pivot(通常是数组第一个),找到它正确的位置,使之数组左边都比其小,数组右边都比其大.具体实现:2种方式  首+尾指针 存储+扫描指针  使用首+尾指针容易出现边界条件不好控制,面试时候容易死循环推荐使用存储+扫描指针(代码量少,思想简单) 首+尾指针首+尾指针: 首指针从左向右扫比pivot大的位置,尾指针从右向左扫比比pivot小的位置,2者交换位置 12">
 
 
 
@@ -357,8 +357,7 @@
       
 
       
-        <p>#快速排序2种写法</p>
-<p>核心思想:找到一个pivot(通常是数组第一个),找到它正确的位置,使之数组左边都比其小,数组右边都比其大.<br>具体实现:2种方式</p>
+        <h1 id="快速排序2种写法"><a href="#快速排序2种写法" class="headerlink" title="快速排序2种写法"></a>快速排序2种写法</h1><p>核心思想:找到一个pivot(通常是数组第一个),找到它正确的位置,使之数组左边都比其小,数组右边都比其大.<br>具体实现:2种方式</p>
 <ol>
 <li>首+尾指针</li>
 <li>存储+扫描指针</li>
@@ -367,7 +366,7 @@
 <h2 id="首-尾指针"><a href="#首-尾指针" class="headerlink" title="首+尾指针"></a>首+尾指针</h2><p>首+尾指针: 首指针从左向右扫比pivot大的位置,尾指针从右向左扫比比pivot小的位置,2者交换位置</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span>　<span class="title">Quick</span> </span>&#123;</span><br><span class="line">    　<span class="function"><span class="keyword">public</span>　<span class="keyword">void</span>　<span class="title">sort</span><span class="params">(<span class="keyword">int</span>　arr[],<span class="keyword">int</span>　low,<span class="keyword">int</span>　high)</span> </span>&#123;</span><br><span class="line">        　<span class="keyword">int</span>　l=low; <span class="comment">//首指针</span></span><br><span class="line">        　<span class="keyword">int</span>　h=high; <span class="comment">//尾指针</span></span><br><span class="line">        　<span class="keyword">int</span>　povit=arr[low];</span><br><span class="line">        </span><br><span class="line">        　<span class="keyword">while</span>(l&lt;h) &#123;</span><br><span class="line">            　<span class="keyword">while</span>(l&lt;h&amp;&amp;arr[h]&gt;=povit)h--;</span><br><span class="line">            　    </span><br><span class="line">            　<span class="keyword">if</span>(l&lt;h)&#123;</span><br><span class="line">                　arr[l]=arr[h];</span><br><span class="line">                　l++;</span><br><span class="line">            　&#125;</span><br><span class="line">            </span><br><span class="line">            　<span class="keyword">while</span>(l&lt;h&amp;&amp;arr[l]&lt;=povit)l++;</span><br><span class="line">            　    </span><br><span class="line">            </span><br><span class="line">            　<span class="keyword">if</span>(l&lt;h)&#123;</span><br><span class="line">                　arr[h]=arr[l];</span><br><span class="line">                　h--;</span><br><span class="line">            　&#125;</span><br><span class="line">        　&#125;</span><br><span class="line">            arr[l]=povit;</span><br><span class="line">        　<span class="keyword">if</span>(l-<span class="number">1</span>&gt;low)sort(arr,low,l-<span class="number">1</span>);</span><br><span class="line">        　<span class="keyword">if</span>(h+<span class="number">1</span>&lt;high)sort(arr,h+<span class="number">1</span>,high);</span><br><span class="line">    　&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="存储-扫描指针"><a href="#存储-扫描指针" class="headerlink" title="存储+扫描指针"></a>存储+扫描指针</h2><p>存储指针存比pivot小的元素,然后前进一个<br>由于扫描指针比存储要快,所以永远不会相遇(算法导论中的经典写法)</p>
+<h2 id="存储-扫描指针"><a href="#存储-扫描指针" class="headerlink" title="存储+扫描指针"></a>存储+扫描指针</h2><p>存储指针存比pivot小的元素,然后前进一个<br>由于扫描指针比存储要快,所以永远不会相遇(算法导论中的经典写法,代码量不超过10行)</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">QuickSort</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">qSort</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> low, <span class="keyword">int</span> high)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//颜色分类的思想,存储和扫遍2个指针.找到比pivot小的,就往++store指针上扔,</span></span><br><span class="line">        <span class="keyword">if</span> (high &lt;= low) <span class="keyword">return</span>;</span><br><span class="line">        <span class="keyword">int</span> pivot = nums[low];</span><br><span class="line">        <span class="keyword">int</span> store = low;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> scan = low + <span class="number">1</span>; scan &lt;= high; scan++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (nums[scan] &lt; pivot) &#123;</span><br><span class="line">                swap(nums, ++store, scan);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//最后此时store本身和左边都是小于等于pivot.原来的pivot在low位上,store为边界位置,交换一下即可.代码简单.不会越界</span></span><br><span class="line">        swap(nums, low, store);</span><br><span class="line">        qSort(nums, low, store - <span class="number">1</span>);</span><br><span class="line">        qSort(nums, store + <span class="number">1</span>, high);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
@@ -557,7 +556,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#首-尾指针"><span class="nav-number">1.</span> <span class="nav-text">首+尾指针</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储-扫描指针"><span class="nav-number">2.</span> <span class="nav-text">存储+扫描指针</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#快速排序2种写法"><span class="nav-number">1.</span> <span class="nav-text">快速排序2种写法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#首-尾指针"><span class="nav-number">1.1.</span> <span class="nav-text">首+尾指针</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储-扫描指针"><span class="nav-number">1.2.</span> <span class="nav-text">存储+扫描指针</span></a></li></ol></li></ol></div>
             
 
           </div>
